@@ -63,7 +63,60 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.node-rsa.node-rsa">
+            function <span class="apidocSignatureSpan"></span>node-rsa
+            <span class="apidocSignatureSpan">(key, format, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-rsa.gruntfile">
+            function <span class="apidocSignatureSpan">node-rsa.</span>gruntfile
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-rsa.toString">
+            function <span class="apidocSignatureSpan">node-rsa.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-rsa.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-rsa.gruntfile">module node-rsa.gruntfile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-rsa.gruntfile.gruntfile">
+            function <span class="apidocSignatureSpan">node-rsa.</span>gruntfile
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-rsa.toString">module node-rsa.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-rsa.toString.toString">
+            function <span class="apidocSignatureSpan">node-rsa.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
 
         </li>
 
@@ -111,6 +164,181 @@
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.node-rsa" id="apidoc.module.node-rsa">module node-rsa</a></h1>
 
+
+    <h2>
+        <a href="#apidoc.element.node-rsa.node-rsa" id="apidoc.element.node-rsa.node-rsa">
+        function <span class="apidocSignatureSpan"></span>node-rsa
+        <span class="apidocSignatureSpan">(key, format, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NodeRSA(key, format, options) {
+    if (!(this instanceof NodeRSA)) {
+        return new NodeRSA(key, format, options);
+    }
+
+    if (_.isObject(format)) {
+        options = format;
+        format = undefined;
+    }
+
+    this.$options = {
+        signingScheme: DEFAULT_SIGNING_SCHEME,
+        signingSchemeOptions: {
+            hash: &#x27;sha256&#x27;,
+            saltLength: null
+        },
+        encryptionScheme: DEFAULT_ENCRYPTION_SCHEME,
+        encryptionSchemeOptions: {
+            hash: &#x27;sha1&#x27;,
+            label: null
+        },
+        environment: utils.detectEnvironment(),
+        rsaUtils: this
+    };
+    this.keyPair = new rsa.Key();
+    this.$cache = {};
+
+    if (Buffer.isBuffer(key) || _.isString(key)) {
+        this.importKey(key, format);
+    } else if (_.isObject(key)) {
+        this.generateKeyPair(key.b, key.e);
+    }
+
+    this.setOptions(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-rsa.gruntfile" id="apidoc.element.node-rsa.gruntfile">
+        function <span class="apidocSignatureSpan">node-rsa.</span>gruntfile
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gruntfile = function (grunt) {
+    grunt.initConfig({
+        jshint: {
+            options: {},
+            default: {
+                files: {
+                    src: [&#x27;gruntfile.js&#x27;, &#x27;src/**/*.js&#x27;, &#x27;!src/libs/jsbn.js&#x27;]
+                }
+            },
+            libs: {
+                files: {
+                    src: [&#x27;src/libs/**/*&#x27;]
+                }
+            }
+        },
+
+        simplemocha: {
+            options: {
+                reporter: &#x27;list&#x27;
+            },
+            all: {src: [&#x27;test/**/*.js&#x27;]}
+        }
+    });
+
+    require(&#x27;jit-grunt&#x27;)(grunt, {
+        &#x27;simplemocha&#x27;: &#x27;grunt-simple-mocha&#x27;
+    });
+
+    grunt.registerTask(&#x27;lint&#x27;, [&#x27;jshint:default&#x27;]);
+    grunt.registerTask(&#x27;test&#x27;, [&#x27;simplemocha&#x27;]);
+
+    grunt.registerTask(&#x27;default&#x27;, [&#x27;lint&#x27;, &#x27;test&#x27;]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-rsa.toString" id="apidoc.element.node-rsa.toString">
+        function <span class="apidocSignatureSpan">node-rsa.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-rsa.gruntfile" id="apidoc.module.node-rsa.gruntfile">module node-rsa.gruntfile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-rsa.gruntfile.gruntfile" id="apidoc.element.node-rsa.gruntfile.gruntfile">
+        function <span class="apidocSignatureSpan">node-rsa.</span>gruntfile
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gruntfile = function (grunt) {
+    grunt.initConfig({
+        jshint: {
+            options: {},
+            default: {
+                files: {
+                    src: [&#x27;gruntfile.js&#x27;, &#x27;src/**/*.js&#x27;, &#x27;!src/libs/jsbn.js&#x27;]
+                }
+            },
+            libs: {
+                files: {
+                    src: [&#x27;src/libs/**/*&#x27;]
+                }
+            }
+        },
+
+        simplemocha: {
+            options: {
+                reporter: &#x27;list&#x27;
+            },
+            all: {src: [&#x27;test/**/*.js&#x27;]}
+        }
+    });
+
+    require(&#x27;jit-grunt&#x27;)(grunt, {
+        &#x27;simplemocha&#x27;: &#x27;grunt-simple-mocha&#x27;
+    });
+
+    grunt.registerTask(&#x27;lint&#x27;, [&#x27;jshint:default&#x27;]);
+    grunt.registerTask(&#x27;test&#x27;, [&#x27;simplemocha&#x27;]);
+
+    grunt.registerTask(&#x27;default&#x27;, [&#x27;lint&#x27;, &#x27;test&#x27;]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-rsa.toString" id="apidoc.module.node-rsa.toString">module node-rsa.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-rsa.toString.toString" id="apidoc.element.node-rsa.toString.toString">
+        function <span class="apidocSignatureSpan">node-rsa.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
 
 
 </div>

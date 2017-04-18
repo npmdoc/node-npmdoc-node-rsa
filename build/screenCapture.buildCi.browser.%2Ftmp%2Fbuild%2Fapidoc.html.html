@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/rzcoder/node-rsa"
-
-    >node-rsa (v0.4.2)</a>
+    <a href="https://github.com/rzcoder/node-rsa">node-rsa (v0.4.2)</a>
 </h1>
 <h4>Node.js RSA library</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.node-rsa">module node-rsa</a><ol>
 
@@ -185,12 +178,12 @@
     this.$options = {
         signingScheme: DEFAULT_SIGNING_SCHEME,
         signingSchemeOptions: {
-            hash: &#x27;sha256&#x27;,
+            hash: 'sha256',
             saltLength: null
         },
         encryptionScheme: DEFAULT_ENCRYPTION_SCHEME,
         encryptionSchemeOptions: {
-            hash: &#x27;sha1&#x27;,
+            hash: 'sha1',
             label: null
         },
         environment: utils.detectEnvironment(),
@@ -225,32 +218,32 @@
             options: {},
             default: {
                 files: {
-                    src: [&#x27;gruntfile.js&#x27;, &#x27;src/**/*.js&#x27;, &#x27;!src/libs/jsbn.js&#x27;]
+                    src: ['gruntfile.js', 'src/**/*.js', '!src/libs/jsbn.js']
                 }
             },
             libs: {
                 files: {
-                    src: [&#x27;src/libs/**/*&#x27;]
+                    src: ['src/libs/**/*']
                 }
             }
         },
 
         simplemocha: {
             options: {
-                reporter: &#x27;list&#x27;
+                reporter: 'list'
             },
-            all: {src: [&#x27;test/**/*.js&#x27;]}
+            all: {src: ['test/**/*.js']}
         }
     });
 
-    require(&#x27;jit-grunt&#x27;)(grunt, {
-        &#x27;simplemocha&#x27;: &#x27;grunt-simple-mocha&#x27;
+    require('jit-grunt')(grunt, {
+        'simplemocha': 'grunt-simple-mocha'
     });
 
-    grunt.registerTask(&#x27;lint&#x27;, [&#x27;jshint:default&#x27;]);
-    grunt.registerTask(&#x27;test&#x27;, [&#x27;simplemocha&#x27;]);
+    grunt.registerTask('lint', ['jshint:default']);
+    grunt.registerTask('test', ['simplemocha']);
 
-    grunt.registerTask(&#x27;default&#x27;, [&#x27;lint&#x27;, &#x27;test&#x27;]);
+    grunt.registerTask('default', ['lint', 'test']);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -292,32 +285,32 @@
             options: {},
             default: {
                 files: {
-                    src: [&#x27;gruntfile.js&#x27;, &#x27;src/**/*.js&#x27;, &#x27;!src/libs/jsbn.js&#x27;]
+                    src: ['gruntfile.js', 'src/**/*.js', '!src/libs/jsbn.js']
                 }
             },
             libs: {
                 files: {
-                    src: [&#x27;src/libs/**/*&#x27;]
+                    src: ['src/libs/**/*']
                 }
             }
         },
 
         simplemocha: {
             options: {
-                reporter: &#x27;list&#x27;
+                reporter: 'list'
             },
-            all: {src: [&#x27;test/**/*.js&#x27;]}
+            all: {src: ['test/**/*.js']}
         }
     });
 
-    require(&#x27;jit-grunt&#x27;)(grunt, {
-        &#x27;simplemocha&#x27;: &#x27;grunt-simple-mocha&#x27;
+    require('jit-grunt')(grunt, {
+        'simplemocha': 'grunt-simple-mocha'
     });
 
-    grunt.registerTask(&#x27;lint&#x27;, [&#x27;jshint:default&#x27;]);
-    grunt.registerTask(&#x27;test&#x27;, [&#x27;simplemocha&#x27;]);
+    grunt.registerTask('lint', ['jshint:default']);
+    grunt.registerTask('test', ['simplemocha']);
 
-    grunt.registerTask(&#x27;default&#x27;, [&#x27;lint&#x27;, &#x27;test&#x27;]);
+    grunt.registerTask('default', ['lint', 'test']);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -355,11 +348,11 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">detectEnvironment = function () {
-    if (process &#x26;&#x26; process.title === &#x27;browser&#x27; || (typeof(window) !== &#x27;undefined&#x27; &#x26;&#x26; window)) {
-        return &#x27;browser&#x27;;
+    if (process &amp;&amp; process.title === 'browser' || (typeof(window) !== 'undefined' &amp;&amp; window)) {
+        return 'browser';
     }
 
-    return &#x27;node&#x27;;
+    return 'node';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -376,12 +369,12 @@
     <li>description and source-code<pre class="apidocCodePre">get32IntFromBuffer = function (buffer, offset) {
     offset = offset || 0;
     var size = 0;
-    if ((size = buffer.length - offset) &#x3e; 0) {
-        if (size &#x3e;= 4) {
+    if ((size = buffer.length - offset) &gt; 0) {
+        if (size &gt;= 4) {
             return buffer.readUInt32BE(offset);
         } else {
             var res = 0;
-            for (var i = offset + size, d = 0; i &#x3e; offset; i--, d += 2) {
+            for (var i = offset + size, d = 0; i &gt; offset; i--, d += 2) {
                 res += buffer[i - 1] * Math.pow(16, d);
             }
             return res;
@@ -403,10 +396,10 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">linebrk = function (str, maxLen) {
-    var res = &#x27;&#x27;;
+    var res = '';
     var i = 0;
-    while (i + maxLen &#x3c; str.length) {
-        res += str.substring(i, i + maxLen) + &#x22;\n&#x22;;
+    while (i + maxLen &lt; str.length) {
+        res += str.substring(i, i + maxLen) + "\n";
         i += maxLen;
     }
     return res + str.substring(i, str.length);
@@ -425,3 +418,4 @@
     ]
 </div>
 </div>
+</body></html>

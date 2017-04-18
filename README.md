@@ -1,9 +1,14 @@
-# api documentation for  [node-rsa (v0.4.2)](https://github.com/rzcoder/node-rsa)  [![npm package](https://img.shields.io/npm/v/npmdoc-node-rsa.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-node-rsa) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-node-rsa.svg)](https://travis-ci.org/npmdoc/node-npmdoc-node-rsa)
+# npmdoc-node-rsa
+
+#### api documentation for  [node-rsa (v0.4.2)](https://github.com/rzcoder/node-rsa)  [![npm package](https://img.shields.io/npm/v/npmdoc-node-rsa.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-node-rsa) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-node-rsa.svg)](https://travis-ci.org/npmdoc/node-npmdoc-node-rsa)
+
 #### Node.js RSA library
 
-[![NPM](https://nodei.co/npm/node-rsa.png?downloads=true)](https://www.npmjs.com/package/node-rsa)
+[![NPM](https://nodei.co/npm/node-rsa.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/node-rsa)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-node-rsa/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-node-rsa_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-node-rsa/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-node-rsa/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-node-rsa/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-node-rsa/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-node-rsa/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-node-rsa/build/screenCapture.npmPackageListing.svg)
 
@@ -58,13 +63,11 @@
     "main": "src/NodeRSA.js",
     "maintainers": [
         {
-            "name": "rzcoder",
-            "email": "rzcoder@gmail.com"
+            "name": "rzcoder"
         }
     ],
     "name": "node-rsa",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/rzcoder/node-rsa.git"
@@ -74,87 +77,6 @@
     },
     "version": "0.4.2"
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module node-rsa](#apidoc.module.node-rsa)
-1.  object <span class="apidocSignatureSpan">node-rsa.</span>utils
-
-#### [module node-rsa.utils](#apidoc.module.node-rsa.utils)
-1.  [function <span class="apidocSignatureSpan">node-rsa.utils.</span>detectEnvironment ()](#apidoc.element.node-rsa.utils.detectEnvironment)
-1.  [function <span class="apidocSignatureSpan">node-rsa.utils.</span>get32IntFromBuffer (buffer, offset)](#apidoc.element.node-rsa.utils.get32IntFromBuffer)
-1.  [function <span class="apidocSignatureSpan">node-rsa.utils.</span>linebrk (str, maxLen)](#apidoc.element.node-rsa.utils.linebrk)
-1.  object <span class="apidocSignatureSpan">node-rsa.utils.</span>_
-
-
-
-# <a name="apidoc.module.node-rsa"></a>[module node-rsa](#apidoc.module.node-rsa)
-
-
-
-# <a name="apidoc.module.node-rsa.utils"></a>[module node-rsa.utils](#apidoc.module.node-rsa.utils)
-
-#### <a name="apidoc.element.node-rsa.utils.detectEnvironment"></a>[function <span class="apidocSignatureSpan">node-rsa.utils.</span>detectEnvironment ()](#apidoc.element.node-rsa.utils.detectEnvironment)
-- description and source-code
-```javascript
-detectEnvironment = function () {
-    if (process && process.title === 'browser' || (typeof(window) !== 'undefined' && window)) {
-        return 'browser';
-    }
-
-    return 'node';
-}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.node-rsa.utils.get32IntFromBuffer"></a>[function <span class="apidocSignatureSpan">node-rsa.utils.</span>get32IntFromBuffer (buffer, offset)](#apidoc.element.node-rsa.utils.get32IntFromBuffer)
-- description and source-code
-```javascript
-get32IntFromBuffer = function (buffer, offset) {
-    offset = offset || 0;
-    var size = 0;
-    if ((size = buffer.length - offset) > 0) {
-        if (size >= 4) {
-            return buffer.readUInt32BE(offset);
-        } else {
-            var res = 0;
-            for (var i = offset + size, d = 0; i > offset; i--, d += 2) {
-                res += buffer[i - 1] * Math.pow(16, d);
-            }
-            return res;
-        }
-    } else {
-        return NaN;
-    }
-}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.node-rsa.utils.linebrk"></a>[function <span class="apidocSignatureSpan">node-rsa.utils.</span>linebrk (str, maxLen)](#apidoc.element.node-rsa.utils.linebrk)
-- description and source-code
-```javascript
-linebrk = function (str, maxLen) {
-    var res = '';
-    var i = 0;
-    while (i + maxLen < str.length) {
-        res += str.substring(i, i + maxLen) + "\n";
-        i += maxLen;
-    }
-    return res + str.substring(i, str.length);
-}
-```
-- example usage
-```shell
-n/a
 ```
 
 

@@ -1,6 +1,6 @@
 # npmdoc-node-rsa
 
-#### api documentation for  [node-rsa (v0.4.2)](https://github.com/rzcoder/node-rsa)  [![npm package](https://img.shields.io/npm/v/npmdoc-node-rsa.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-node-rsa) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-node-rsa.svg)](https://travis-ci.org/npmdoc/node-npmdoc-node-rsa)
+#### basic api documentation for  [node-rsa (v0.4.2)](https://github.com/rzcoder/node-rsa)  [![npm package](https://img.shields.io/npm/v/npmdoc-node-rsa.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-node-rsa) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-node-rsa.svg)](https://travis-ci.org/npmdoc/node-npmdoc-node-rsa)
 
 #### Node.js RSA library
 
@@ -75,7 +75,8 @@
     "scripts": {
         "test": "grunt test"
     },
-    "version": "0.4.2"
+    "version": "0.4.2",
+    "bin": {}
 }
 ```
 
